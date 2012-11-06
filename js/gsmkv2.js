@@ -1,28 +1,30 @@
 var mkListener = function(e){
 	chrome.extension.sendMessage({ctrlKey:e.ctrlKey,altKey:e.altKey,shiftKey:e.shiftKey,keyCode:e.keyCode},function(r){
 		switch(r.keyCode){
-			case 176:
-				//NEXT_MK
+			case MKVAL.NEXT:
 				chrome.extension.sendMessage({type:"tabid"},function(j){
-					if(j.isgs)$('#player_next').click();
-					else chrome.extension.sendMessage({cmd:"next"});
+					if(j.isgs){
+						if(document.getElementById('player_next'))document.getElementById('player_next').click();
+						else document.getElementById('play-next').click();
+					}else chrome.extension.sendMessage({cmd:"next"});
 				});
 				break;
-			case 177:
-				//PREV_MK
+			case MKVAL.PREV:
 				chrome.extension.sendMessage({type:"tabid"},function(j){
-					if(j.isgs)$('#player_previous').click();
-					else chrome.extension.sendMessage({cmd:"prev"});
+					if(j.isgs){
+						if(document.getElementById('player_previous'))document.getElementById('player_previous').click();
+						else document.getElementById('play-prev').click();
+					}else chrome.extension.sendMessage({cmd:"prev"});
 				});
 				break;
-			case 178:
-				//STOP_MK
+			case MKVAL.STOP:
 				break;
-			case 179:
-				//PLAY_MK
+			case MKVAL.PLAY:
 				chrome.extension.sendMessage({type:"tabid"},function(j){
-					if(j.isgs)$('#player_play_pause').click();
-					else chrome.extension.sendMessage({cmd:"play_pause"});
+					if(j.isgs){
+						if(document.getElementById('player_play_pause'))document.getElementById('player_play_pause').click();
+						else document.getElementById('play-pause').click();
+					}else chrome.extension.sendMessage({cmd:"play_pause"});
 				});
 				break;
 		}
@@ -31,12 +33,21 @@ var mkListener = function(e){
 $(window).keyup(function(e){mkListener(e)});
 chrome.extension.onMessage.addListener(function(request,sender,sendResponse){
 	switch(request){
-		case 'next':$('#player_next').click();
-		break;
-		case 'prev':$('#player_previous').click();
-		break;
-		case 'play_pause':$('#player_play_pause').click();
-		break;
+		case 'next':{
+			if(document.getElementById('player_next'))document.getElementById('player_next').click();
+			else document.getElementById('play-next').click();
+			break;
+		}
+		case 'prev':{
+			if(document.getElementById('player_previous'))document.getElementById('player_previous').click();
+			else document.getElementById('play-prev').click();
+			break;
+		}
+		case 'play_pause':{
+			if(document.getElementById('player_play_pause'))document.getElementById('player_play_pause').click();
+			else document.getElementById('play-pause').click();
+			break;
+		}
 		default:;
 	}
 });
