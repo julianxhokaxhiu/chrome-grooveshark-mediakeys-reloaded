@@ -1,27 +1,46 @@
 {
-	"manifest_version":2,
-	"name":"Grooveshark Mediakeys Reloaded",
-	"version":"0.7",
-	"description":"Enable mediakeys when on Grooveshark but also from other tabs.",
-	"permissions":["tabs","http://*/*","https://*/*"],
-	"background":{
-		"scripts":[
-			"js/jquery-1.8.2.min.js",
-			"js/init.js",
-			"background.js"
-		]
-	},
-	"options_page":"options.html",
-	"icons":{
-		"16":"img/icon_16.png",
-		"128":"img/icon_128.png"
-	},
-	"content_scripts":[
-		{
-		  "matches": ["http://*/*","https://*/*"],
-		  "permissions":["tabs","http://*/*","https://*/*"],
-		  "js": ["js/jquery-1.8.2.min.js","js/init.js","js/gsmkv2.js"],
-		  "run_at": "document_idle"
-		}
-	]
+    "manifest_version": 2,
+    "name": "Grooveshark Mediakeys Reloaded",
+    "version": "0.8",
+    "description": "Enable the use of MediaKeys for Grooveshark",
+    "permissions": [
+        "*://*.grooveshark.com/*"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    },
+    "commands": {
+        "PLAY-PAUSE-MK": {
+            "suggested_key": { "default": "MediaPlayPause" },
+            "description": "Play/Pause Key",
+            "global": true
+        },
+        "PREV-MK": {
+            "suggested_key": { "default": "MediaPrevTrack" },
+            "description": "Prev Key",
+            "global": true
+        },
+        "NEXT-MK": {
+            "suggested_key": { "default": "MediaNextTrack" },
+            "description": "Next Key",
+            "global": true
+        }
+    },
+    "icons": {
+        "16": "img/icon_16.png",
+        "128": "img/icon_128.png"
+    },
+    "content_scripts": [{
+        "matches": [
+            "*://*.grooveshark.com/*"
+        ],
+        "js": [
+            "js/jquery-2.1.1.min.js",
+            "js/app.js"
+        ],
+        "run_at": "document_idle"
+    }]
 }
