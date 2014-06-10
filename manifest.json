@@ -38,7 +38,6 @@
             "*://*.grooveshark.com/*"
         ],
         "js": [
-            "js/jquery-2.1.1.min.js",
             "js/app.js"
         ],
         "run_at": "document_idle"
