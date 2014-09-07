@@ -1,6 +1,6 @@
 chrome.runtime.onMessage.addListener( function(request, sender, sendResponse){
     var click_event = new Event('click');
-
+    console.log('Command:', request.action);
     switch(request.action){
         case 'NEXT-MK':
             //NEXT_MK
@@ -14,12 +14,12 @@ chrome.runtime.onMessage.addListener( function(request, sender, sendResponse){
             //PLAY_MK
             document.getElementById('play-pause').dispatchEvent(click_event);
             break;
-        case 'ADD-FAV':
-            //ADD_FAV
+        case 'NP-FAV':
+            //NP_FAV
             document.getElementById('np-fav').click(); // dispatchEvent doesn't work!
             break;
-        case 'ADD-COL':
-            //ADD_COL
+        case 'NP-ADD':
+            //NP_ADD
             document.getElementById('np-add').click(); // dispatchEvent doesn't work!
             break;
     }
