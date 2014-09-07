@@ -1,10 +1,12 @@
 AUTHOR: Julian Xhokaxhiu
-VERSION: 0.8.1
+VERSION: 0.9.1
 DESCRIPTION: Enable the mediakeys for Grooveshark
 
 HOW IT WORKS:
 As a native desktop application, you just press play/pause button,
 prev or next and it will trigger the buttons for the web app :)
 Now also working in background (minimize Chrome and forget about it).
+
+Now with two added keyboard shortcuts (Ctrl+Shift+9/0) to add to favorites/collection.
 
 Enjoy!
