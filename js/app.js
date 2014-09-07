@@ -14,5 +14,13 @@ chrome.runtime.onMessage.addListener( function(request, sender, sendResponse){
             //PLAY_MK
             document.getElementById('play-pause').dispatchEvent(click_event);
             break;
+        case 'ADD-FAV':
+            //ADD_FAV
+            document.getElementById('np-fav').click(); // dispatchEvent doesn't work!
+            break;
+        case 'ADD-COL':
+            //ADD_COL
+            document.getElementById('np-add').click(); // dispatchEvent doesn't work!
+            break;
     }
 });
