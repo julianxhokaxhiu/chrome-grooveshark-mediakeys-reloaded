@@ -1,6 +1,6 @@
 chrome.runtime.onMessage.addListener( function(request, sender, sendResponse){
     var click_event = new Event('click');
-    console.log('Command:', request.action);
+    
     switch(request.action){
         case 'NEXT-MK':
             //NEXT_MK
