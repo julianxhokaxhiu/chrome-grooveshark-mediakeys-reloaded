@@ -14,17 +14,26 @@
     },
     "commands": {
         "PLAY-PAUSE-MK": {
-            "suggested_key": { "default": "MediaPlayPause" },
+            "suggested_key": {
+                "default": "MediaPlayPause",
+                "windows": "VK_MEDIA_PLAY_PAUSE"
+            },
             "description": "Play/Pause Key",
             "global": true
         },
         "PREV-MK": {
-            "suggested_key": { "default": "MediaPrevTrack" },
+            "suggested_key": {
+                "default": "MediaPrevTrack",
+                "windows": "VK_MEDIA_PREV_TRACK"
+            },
             "description": "Prev Key",
             "global": true
         },
         "NEXT-MK": {
-            "suggested_key": { "default": "MediaNextTrack" },
+            "suggested_key": {
+                "default": "MediaNextTrack",
+                "windows": "VK_MEDIA_NEXT_TRACK"
+            },
             "description": "Next Key",
             "global": true
         }
